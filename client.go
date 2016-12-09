@@ -168,6 +168,18 @@ func (c *Client) SetCookie(hc *http.Cookie) *Client {
 	return c
 }
 
+func (c *Client) MakeTestCookie(name string, value string) (cookie *http.Cookie) {
+	cookie = &http.Cookie{
+		Name:     name,
+		Value:    value,
+		Path:     "/",
+		Domain:   "localhost",
+		HttpOnly: true,
+		Secure:   false,
+	}
+	return
+}
+
 // SetCookies method sets an array of cookies in the client instance.
 // These cookies will be added to all the request raised from this client instance.
 // 		cookies := make([]*http.Cookie, 0)
